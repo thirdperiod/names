@@ -1,0 +1,26 @@
+<html>
+  <head>
+    <script>
+      function pickName() {
+        var person;
+        var people = [];
+        
+        if (people.length !== 0) {
+          person = people[Math.floor(Math.random()*people.length)];
+          if (person === undefined) { person = people[Math.floor(Math.random()*people.length)] };
+          document.getElementById("name").innerHTML = people[person];
+          people = people.filter(item => { return item !== people[person] });
+        } else if (people.length === 0) {
+          document.write("<center><h1 style='color:blue'>Everyone has been picked.</h1><br><br><button onclick='window.location.reload()'>Continue</button>");
+        }
+      }
+    </script>
+  </head>
+  <body>
+    <center>
+      <h1>Random Name Picker</h1><br><br><br>
+      <button onclick="pickName()">Pick Name</button><br><br>
+      <txt id="name" style="color:blue"></txt>
+    </center>
+  </body>
+</html>
